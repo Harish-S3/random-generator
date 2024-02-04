@@ -36,14 +36,14 @@ def fun_fact_generator():
 
     return render_template('fun_fact_generator.html', fun_fact=fun_fact_text)
 
-# Add the /api/fun-facts route
 @app.route('/api/fun-facts')
 def get_fun_facts_api():
-    random_fun_fact = collection.aggregate([{'$sample': {'size': 1}}]).next()
-    if random_fun_fact:
-        return jsonify({'fun_fact': random_fun_fact['fun_fact']})
-    else:
-        return jsonify({'fun_fact': None})
+    num_facts = int(request.args.get('num_facts', default=1))
+    random_fun_facts = collection.aggregate([{'$sample': {'size': num_facts}}])
+    fun_facts = [fact['fun_fact'] for fact in random_fun_facts]
+
+    return jsonify({'fun_facts': fun_facts})
+
     
 meme_folder = os.path.join(os.path.dirname(__file__), 'static', 'memes')
 meme_files = [f for f in os.listdir(meme_folder) if os.path.isfile(os.path.join(meme_folder, f))]

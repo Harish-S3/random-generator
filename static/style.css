@@ -4,13 +4,13 @@
 }
 
 h1 {
-    color:darkkhaki;
+    color: #ffbb57; /* Warm yellow */
     font-size: 2em;
     margin-bottom: 20px;
 }
 
 form, .result {
-    background-color: #34495e;
+    background-color: #ff847c; /* Coral pink */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     max-width: 400px;
@@ -21,7 +21,7 @@ form, .result {
 label {
     display: block;
     margin-bottom: 8px;
-    color: #ecf0f1;
+    color: #f9f5e8; /* Light cream */
     font-size: 1.2em;
 }
 
@@ -30,14 +30,14 @@ input, .result {
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
-    background-color: #2c3e50;
-    border: 1px solid #3498db;
-    color: #ecf0f1;
+    background-color: #f9f5e8;
+    border: 1px solid #ff847c; 
+    color: #494848; /* Charcoal gray */
 }
 
 button {
-    background-color: #3498db;
-    color: #ecf0f1;
+    background-color: #190E4F;
+    color: #f9f5e8; /* Light cream */
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #ff5e62; /* Salmon pink */
 }
 
 .result {
@@ -55,16 +55,15 @@ button:hover {
     font-size: 1.5em;
 }
 
-
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Make the main axis vertical */
-    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header, main, footer {
@@ -72,90 +71,98 @@ header, main, footer {
     box-sizing: border-box;
 }
 
-header {
-  
-    background-color: #3498db;
+header, footer {
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,79,121,1) 48%, rgba(0,212,255,1) 100%);
 }
 
 main {
-    flex: 1; /* Allow the main content to grow and take remaining vertical space */
+    flex: 1;
 }
 
-footer {
-    background-color: #34495e;
+/* Styling for the num-facts-input */
+#num-facts-input {
+    width: auto;
+    text-align: center;
 }
 
-
-.home-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 15px; /* Adjust the padding for height */
-    font-size: 16px;
-    text-align:left;
-    text-decoration: none;
-    color: #fff;
-    background-color: #3498db;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-
-    &:hover {
-        background-color: #2980b9;
-    }
-}
 /* Styles for the fun-fact-container */
 .fun-fact-container {
     text-align: center;
-    margin: 50px auto; /* Adjust the margin for positioning */
+    background: rgb(73,218,132);
+    background: linear-gradient(90deg, rgba(73,218,132,1) 0%, rgba(102,101,241,1) 100%);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 /* Styles for the fun-fact-title */
 #fun-fact-title {
-    font-size: 40px;
-    color:darkgray; /* Adjust the color */
+    font-size: 30px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(182, 11, 156, 0.3);
+    
 }
 
-/* Styles for the fun-fact-text */
-#fun-fact-text {
-    border: 2px solid #3498db; /* Border color */
-    padding: 15px; /* Padding around the text container */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
-    background-color:darkred; /* Background color */
-    text-align: center; /* Center-align text */
-    margin: 5px 0; /* Margin for spacing */
-    color: chartreuse;
-   font-size: larger;
+/* Styles for the fun-fact-text-container */
+#fun-fact-text-container {
+    border: 2px solid #0c96f1; /* Azure blue */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(172, 9, 9, 0.1);
+    background-color:#ffd51c; 
+    text-align: center;
+    margin: 15px 0;
+    color:#333333;
+    font-size: larger;
 }
 
 /* Styles for the get-fun-fact-btn */
 #get-fun-fact-btn {
     display: inline-block;
-    margin-top: 20px; /* Adjust the margin for spacing */
-    padding: 10px 20px; /* Adjust the padding for size */
+    margin-top: 20px;
+    padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #3498db; /* Adjust the background color */
+    background-color: #564d80;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: auto;
+}
 
-    &:hover {
-        background-color: #2980b9; /* Adjust the background color on hover */
-    }
+#get-fun-fact-btn:hover {
+    background-color: #2980b9; /* Azure blue */
+}
+
+/* Styles for the home-btn */
+.home-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #27ae60; /* Nephritis green */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 150px;
+}
+
+.home-btn:hover {
+    background-color: #229954; /* Jungle green */
 }
 
 /* Add this CSS to your styles */
 #meme-container {
-    text-align: center; /* Center the content horizontally */
-    margin-top: 20px; /* Add some top margin for spacing */
+    text-align: center;
+    margin-top: 20px;
 }
 
 #meme-container img {
-    max-width: 110%; /* Ensure the image doesn't exceed the container width */
-    height: 650px; /* Maintain the image's aspect ratio */
+    max-width: 110%;
+    height: 650px;
 }
 
 #get-meme-btn {
@@ -166,19 +173,18 @@ footer {
     text-align: center;
     text-decoration: none;
     color: #fff;
-    background-color: #3498db;
+    background-color: #3498db; /* Dodger blue */
     border-radius: 5px;
     transition: background-color 0.3s ease;
     width: fit-content;
     cursor: pointer;
 
     &:hover {
-        background-color: #2980b9;
+        background-color: #2980b9; /* Azure blue */
     }
 }
 
 .bg {
-    
     background-size: cover;
     background-position: center;
     font-family: 'Roboto', sans-serif;
@@ -211,13 +217,12 @@ a {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    background-color: #3498db;
+    background-color: #3498db; /* Dodger blue */
     color: #ffffff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 a:hover {
-    background-color: #2980b9;
+    background-color: #2980b9; /* Azure blue */
 }
-

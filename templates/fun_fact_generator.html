@@ -3,54 +3,59 @@
 {% block title %}Fun Fact Generator{% endblock %}
 
 {% block content %}
-    <h2>Fun Fact Generator</h2>
-    <div class="fun-fact-container">
-        <h2 id="fun-fact-title">Did You Know?</h2>
-        <p id="fun-fact-text">{{ fun_fact }}</p>
-        
-        <button id="get-fun-fact-btn">Get Fun Fact</button>
-    </div>
-    
-    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const getFunFactButton = document.getElementById('get-fun-fact-btn');
-            const funFactTitle = document.getElementById('fun-fact-title');
-            const funFactText = document.getElementById('fun-fact-text');
+<h2 id="fun-fact-title">Fun Fact Generator</h2>
+<div class="fun-fact-container">
+    <h2 id="fun-fact-title">Did You Know?</h2>
+    <label for="num-facts-input">Number of Fun Facts:</label>
+    <input type="number" id="num-facts-input" value="3" min="1" max="10">
+    <button id="get-fun-fact-btn">Get Fun Facts</button>
+    <div id="fun-fact-text-container"></div>
+</div>
+<a href="{{ url_for('home') }}" class="home-btn">Home</a>
 
-            const getFunFact = async () => {
-                try {
-                    const response = await fetch('/api/fun-facts');
-                    const data = await response.json();
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const getFunFactButton = document.getElementById('get-fun-fact-btn');
+        const funFactTitle = document.getElementById('fun-fact-title');
+        const funFactContainer = document.getElementById('fun-fact-text-container');
+        const numFactsInput = document.getElementById('num-facts-input');
 
-                    if (data && data.fun_fact) {
-                        // Animate the text
-                        funFactText.style.opacity = 0;
-                        setTimeout(() => {
-                            funFactText.textContent = data.fun_fact || 'No fun fact available';
-                            funFactText.style.opacity = 1;
-                        }, 600);
-                    } else {
-                        console.error('Invalid or empty response:', data);
-                    }
-                } catch (error) {
-                    console.error('Error fetching fun fact:', error);
+        const getFunFacts = async () => {
+            try {
+                const numFacts = numFactsInput.value || 1; // Default to 1 if input is empty
+                const response = await fetch(`/api/fun-facts?num_facts=${numFacts}`);
+                const data = await response.json();
+
+                if (data && data.fun_facts) {
+                    // Clear previous content
+                    funFactContainer.innerHTML = '';
+
+                    // Display each fun fact on a new line
+                    data.fun_facts.forEach(fact => {
+                        const factParagraph = document.createElement('p');
+                        factParagraph.textContent = fact;
+                        funFactContainer.appendChild(factParagraph);
+                    });
+                } else {
+                    console.error('Invalid or empty response:', data);
                 }
-            };
-
-            // Attach the function to the button click event
-            if (getFunFactButton) {
-                getFunFactButton.addEventListener('click', getFunFact);
-            } else {
-                console.error('Missing element with ID: get-fun-fact-btn');
+            } catch (error) {
+                console.error('Error fetching fun facts:', error);
             }
+        };
 
-            // Initial fetch when the page loads
-            getFunFact();
+        // Attach the function to the button click event
+        if (getFunFactButton) {
+            getFunFactButton.addEventListener('click', getFunFacts);
+        } else {
+            console.error('Missing element with ID: get-fun-fact-btn');
+        }
 
-            // Set interval for automatic update (e.g., every 10 seconds)
-            setInterval(getFunFact, 10000); // 10000 milliseconds = 10 seconds
-        });
-    </script>
+        // Initial fetch when the page loads
+        getFunFacts();
+
+        // Set interval for automatic update (e.g., every 10 seconds)
+        setInterval(getFunFacts, 10000); // 10000 milliseconds = 10 seconds
+    });
+</script>
 {% endblock %}
