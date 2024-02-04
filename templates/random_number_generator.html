@@ -1,0 +1,36 @@
+<!-- templates/random_number_generator.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Random Number Generator{% endblock %}
+
+{% block content %}
+<h2>Random Number Generator</h2>
+    <form action="{{ url_for('random_number_generator') }}" method="post">
+        <label for="min">Minimum Value:</label>
+        <input type="number" name="min" value="{{ min_value|default(1) }}" required>
+        <br>
+        <label for="max">Maximum Value:</label>
+        <input type="number" name="max" value="{{ max_value|default(100) }}" required>
+        <br>
+        <button type="submit">Generate Random Number</button>
+    </form>
+    
+    {% if random_number is defined %}
+        <div class="result">
+            <p>Generated Random Number: {{ random_number }}</p>
+        </div>
+    {% endif %}
+    
+    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+    const generateRandomBtn = document.getElementById('generate-random-btn');
+    generateRandomBtn.addEventListener('click', function () {
+        // Your click event handling code
+    });
+});
+    </script>
+{% endblock %}
+
+

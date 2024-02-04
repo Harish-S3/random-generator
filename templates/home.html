@@ -1,0 +1,33 @@
+<!-- templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head> 
+<body class="bg">
+    <h1>Welcome to My Project</h1>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to generate a random number between 1 and 1000
+            function getRandomNumber() {
+                return Math.floor(Math.random() * 1000) + 1;
+            }
+
+            // Get the .bg element
+            const bgElement = document.querySelector('.bg');
+
+            // Set a new background image with a random parameter
+            bgElement.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?nature&${getRandomNumber()}')`;
+        });
+    </script>
+    <ul>
+        <li><a href="{{ url_for('random_number_generator') }}">Random Number Generator</a></li>
+        <li><a href="{{ url_for('fun_fact_generator') }}">Fun Fact Generator</a></li>
+        <li><a href="{{ url_for('meme_generator') }}">Meme Generator</a></li>
+    </ul>
+</body>
+</html>

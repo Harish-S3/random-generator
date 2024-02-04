@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Meme Generator{% endblock %}
+
+{% block content %}
+    <h2>Random Meme Generator</h2>
+
+    <!-- Display the randomly selected meme -->
+    <div class="meme-container" id="meme-container">
+        <img src="{{ meme['src'] }}" alt="Random Meme" class="meme-image">
+    </div>
+
+    <!-- Add a button to generate another random meme -->
+    <button id="get-meme-btn">Generate Another Meme</button>
+    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+
+    <!-- Add other content or buttons as needed -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to fetch a new meme from the server
+            function getNewMeme() {
+                fetch('/meme-generator')
+                    .then(response => response.text())  // Use response.text() for HTML content
+                    .then(data => {
+                        const container = document.createElement('div');
+                        container.innerHTML = data;
+
+                        const memeContainer = document.getElementById('meme-container');
+                        const newMeme = container.querySelector('#meme-container');
+
+                        // Update the 'meme-container' with the new meme HTML
+                        memeContainer.innerHTML = newMeme.innerHTML;
+                    })
+                    .catch(error => console.error('Error fetching meme:', error));
+            }
+
+            // Attach the function to the button click event
+            const getMemeButton = document.getElementById('get-meme-btn');
+            getMemeButton.addEventListener('click', getNewMeme);
+
+            // Attach click event to home button
+            const homeButton = document.querySelector('.home-btn');
+            homeButton.addEventListener('click', function () {
+                window.location.href = "/";
+            });
+
+            // Initial fetch when the page loads
+            getNewMeme();
+        });
+    </script>
+{% endblock %}
