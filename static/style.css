@@ -105,15 +105,16 @@ main {
 
 /* Styles for the fun-fact-text-container */
 #fun-fact-text-container {
-    border: 2px solid #0c96f1; /* Azure blue */
+    border: 3px solid #7E1946;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(172, 9, 9, 0.1);
-    background-color:#ffd51c; 
+    background-color:#dab510; 
     text-align: center;
     margin: 15px 0;
-    color:#333333;
-    font-size: larger;
+    color:#7E1946;
+    font-size: x-large;
+    
 }
 
 /* Styles for the get-fun-fact-btn */

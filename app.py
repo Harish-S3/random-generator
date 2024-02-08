@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
-import os,random
+import random,os
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -44,15 +44,22 @@ def get_fun_facts_api():
 
     return jsonify({'fun_facts': fun_facts})
 
-    
-meme_folder = os.path.join(os.path.dirname(__file__), 'static', 'memes')
-meme_files = [f for f in os.listdir(meme_folder) if os.path.isfile(os.path.join(meme_folder, f))]
 
+# Path to the folder containing meme images
+meme_folder = os.path.join(os.path.dirname(__file__), 'static', 'memes')
 
 @app.route('/meme-generator')
 def meme_generator():
+    # List all files in the meme folder
+    meme_files = [f for f in os.listdir(meme_folder) if os.path.isfile(os.path.join(meme_folder, f))]
+    
+    # Select a random meme image
     selected_meme = random.choice(meme_files)
-    return render_template('meme_generator.html', meme=dict(src=selected_meme))
+    
+    # Construct the URL of the selected meme image
+    meme_url = os.path.join('/static/memes', selected_meme)
+    
+    return render_template('meme_generator.html', meme=dict(src=meme_url))
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
