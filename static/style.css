@@ -1,4 +1,5 @@
 /* static/style.css */
+/* Your existing CSS */
 .container {
     text-align: center;
 }
@@ -9,6 +10,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+
 form, .result {
     background-color: #ff847c; /* Coral pink */
     border-radius: 8px;
@@ -16,13 +18,6 @@ form, .result {
     max-width: 400px;
     margin: auto;
     padding: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #f9f5e8; /* Light cream */
-    font-size: 1.2em;
 }
 
 input, .result {
@@ -69,72 +64,181 @@ body {
 header, main, footer {
     padding: 10px;
     box-sizing: border-box;
+    flex: 1;
 }
 
 header, footer {
     background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,79,121,1) 48%, rgba(0,212,255,1) 100%);
 }
-
-main {
-    flex: 1;
+ 
+.bg{
+background-size: cover;
+background-position: center;
+font-family: 'Roboto', sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+align-items: center;
+justify-content: center;
 }
 
-/* Styling for the num-facts-input */
+h1 {
+font-size: 3em;
+margin-bottom: 20px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+ul {
+list-style: none;
+padding: 0;
+text-align: center;
+}
+
+li {
+margin: 15px;
+}
+
+a {
+    background-image: linear-gradient(to right, #C02425 0%, #F0CB35  51%, #C02425  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+
+a:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+#fun-fact-title{
+    color: whitesmoke;
+}
+
+
+.ran-num{
+
+        background-image: linear-gradient(to right, #3A1C71 0%, #D76D77  51%, #3A1C71  100%);
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+      }
+
+.ran-num:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+     
+
+
+label {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #f9f5e8; /* Light cream */
+    font-size: 1.2em;
+}
+
 #num-facts-input {
     width: auto;
+    display: block;
+    margin: 0 auto; /* Align input to center */
     text-align: center;
-}
-
-/* Styles for the fun-fact-container */
-.fun-fact-container {
-    text-align: center;
-    background: rgb(63,94,251);
-    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* Styles for the fun-fact-title */
-#fun-fact-title {
-    font-size: 30px;
-    color: whitesmoke;
-    text-shadow: 2px 2px 4px rgba(182, 11, 156, 0.3);
-    
-}
-
-/* Styles for the fun-fact-text-container */
-#fun-fact-text-container {
-    border: 3px solid #7E1946;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(172, 9, 9, 0.1);
-    background-color:#dab510; 
-    text-align: center;
-    margin: 15px 0;
-    color:#7E1946;
-    font-size: x-large;
-    
 }
 
 /* Styles for the get-fun-fact-btn */
 #get-fun-fact-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #564d80;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-align: center;
+    display: block;
     width: auto;
+    margin: 10px auto; /* Align button to center */
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+
+        background-image: linear-gradient(to right, #0575E6 0%, #021B79  51%, #0575E6  100%);
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;          
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+
+      }
+      #get-fun-fact-btn:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+     
+
+      
+
+.fact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
 }
 
-#get-fun-fact-btn:hover {
-    background-color: #2980b9; /* Azure blue */
+.text-container,
+.image-container {
+    flex: 1;
+    margin: 0 70px; /* Add margin to create space */
 }
+
+.odd .text-container,
+.even .image-container {
+    order: 2;
+
+   
+}
+
+
+.odd .image-container,
+.even .text-container {
+    order: 1;
+
+}  
+
+
+.text-container p {
+    margin: 0;
+    padding: 10px;
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-container img {
+    height: 260px;
+    width: 400px;
+}
+
+
+/* Add styles for the thin line between containers (e.g., .line) */
 
 /* Styles for the home-btn */
 .home-btn {
@@ -151,10 +255,6 @@ main {
     width: 150px;
 }
 
-.home-btn:hover {
-    background-color: #229954; /* Jungle green */
-}
-
 /* Add this CSS to your styles */
 #meme-container {
     text-align: center;
@@ -162,68 +262,98 @@ main {
 }
 
 #meme-container img {
-    max-width: 110%;
-    height: 650px;
+    width: 600px;
+    height: 570px;
 }
 
-#get-meme-btn {
+.meme-quote{
+    font-size: xx-large;
+    font-family: 'Brush Script MT', cursive;
+    background-image: linear-gradient( 135deg, #FFF720 10%, #3CD500 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align:justify;
+    max-width: 350px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    margin-right: 10px;
+}
+
+#get-meme-btn,#prev-meme-btn{
     display: block;
-    margin: 20px auto;
+    margin: 20px;
     padding: 10px 15px;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    background-color: #3498db; /* Dodger blue */
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
     width: fit-content;
     cursor: pointer;
+        background-image: linear-gradient(to right, #a80077 0%, #66ff00  51%, #a80077  100%);
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 5px;
+      }
 
-    &:hover {
-        background-color: #2980b9; /* Azure blue */
+      #get-meme-btn:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      
+      #prev-meme-btn:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+     
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
     }
-}
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
 
-.bg {
-    background-size: cover;
-    background-position: center;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
-
-h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-li {
-    margin: 15px;
-}
-
-a {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #3498db; /* Dodger blue */
-    color: #ffffff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-a:hover {
-    background-color: #2980b9; /* Azure blue */
-}

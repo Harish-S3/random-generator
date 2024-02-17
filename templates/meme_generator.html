@@ -3,21 +3,38 @@
 {% block title %}Meme Generator{% endblock %}
 
 {% block content %}
-    <h2 id="fun-fact-title">Random Meme Generator</h2>
+    <h2 id="fun-fact-title">Meme Generator</h2>
 
-    <!-- Display the randomly selected meme -->
-    <div class="meme-container" id="meme-container">
-        <img src="{{ meme['src'] }}" alt="Random Meme" class="meme-image">
+    <!-- Table structure with left and right text and meme image in the center -->
+    <table style="border: 0; width: 100%;">
+        <tr>
+            <td class="meme-quote"style="text-align: center;">"Memes are a way to express oneself, and computer science memes are a way for programmers to express their love for coding, technology, and the occasional bug."
+            <br><br>
+            </td>
+            <td style="text-align: center;">
+                <!-- Display the randomly selected meme -->
+                <div class="meme-container" id="meme-container">
+                    <img src="{{ meme['src'] }}" alt="Random Meme" class="meme-image">
+                </div>
+            </td>
+            <td class="meme-quote"style="text-align: center;"> "Computer science memes are the ultimate form of geek humor. They're a way to celebrate the quirks and eccentricities of programming, and to revel in the joy of solving complex problems."</td>
+        </tr>
+    </table>
+
+    <div class="button-container">
+        <button id="prev-meme-btn">Previous Meme</button>
+        <button id="get-meme-btn">Next Meme</button>
     </div>
 
-    <!-- Add a button to generate another random meme -->
-    <button id="get-meme-btn">Generate Another Meme</button>
-    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+
+    <a href="{{ url_for('home_page') }}" class="home-btn">Home</a>
 
     <!-- Add other content or buttons as needed -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            let prevMemeUrl = '';
+
             // Function to fetch a new meme from the server
             function getNewMeme() {
                 fetch('/meme-generator')
@@ -27,7 +44,10 @@
                         container.innerHTML = data;
 
                         const memeContainer = document.getElementById('meme-container');
-                        const newMeme = container.querySelector('#meme-container');
+                        const newMeme = container.querySelector('.meme-container');
+
+                        // Store the previous meme's URL before updating it
+                        prevMemeUrl = memeContainer.querySelector('img').src;
 
                         // Update the 'meme-container' with the new meme HTML
                         memeContainer.innerHTML = newMeme.innerHTML;
@@ -45,8 +65,24 @@
                 window.location.href = "/";
             });
 
+            // Function to go back to the previous meme
+            function goToPrevMeme() {
+                if (prevMemeUrl) {
+                    const memeContainer = document.getElementById('meme-container');
+                    memeContainer.innerHTML = `<img src="${prevMemeUrl}" alt="Previous Meme" class="meme-image">`;
+                } else {
+                    console.log('No previous meme available');
+                }
+            }
+
+            // Attach the function to the button click event
+            const prevMemeButton = document.getElementById('prev-meme-btn');
+            prevMemeButton.addEventListener('click', goToPrevMeme);
+
             // Initial fetch when the page loads
             getNewMeme();
+            // Set interval for automatic update (e.g., every 15 seconds)
+            setInterval(getNewMeme, 15000); // 15000 milliseconds = 15 seconds
         });
     </script>
 {% endblock %}

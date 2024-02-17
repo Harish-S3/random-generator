@@ -3,22 +3,23 @@
 {% block title %}Fun Fact Generator{% endblock %}
 
 {% block content %}
+
 <h2 id="fun-fact-title">Fun Fact Generator</h2>
-<div class="fun-fact-container">
-    <h2 id="fun-fact-title">Did You Know?</h2>
-    <label for="num-facts-input">Number of Fun Facts:</label>
-    <input type="number" id="num-facts-input" value="3" min="1" max="10">
-    <button id="get-fun-fact-btn">Get Fun Facts</button>
-    <div id="fun-fact-text-container"><b></b></div>
+<label for="num-facts-input">Number of Fun Facts:</label>
+<input type="number" id="num-facts-input" value="3" min="1" max="10">
+<button id="get-fun-fact-btn">Get Fun Facts</button><br><br><br>
+
+<div class="fun-fact-container" id="fun-fact-container">
+    
 </div>
-<a href="{{ url_for('home') }}" class="home-btn">Home</a>
+
+<a href="{{ url_for('home_page') }}" class="home-btn">Home</a>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const getFunFactButton = document.getElementById('get-fun-fact-btn');
-        const funFactTitle = document.getElementById('fun-fact-title');
-        const funFactContainer = document.getElementById('fun-fact-text-container');
         const numFactsInput = document.getElementById('num-facts-input');
+        const funFactContainer = document.getElementById('fun-fact-container');
+        const getFunFactsBtn = document.getElementById('get-fun-fact-btn');
 
         const getFunFacts = async () => {
             try {
@@ -30,11 +31,28 @@
                     // Clear previous content
                     funFactContainer.innerHTML = '';
 
-                    // Display each fun fact on a new line
-                    data.fun_facts.forEach(fact => {
-                        const factParagraph = document.createElement('p');
-                        factParagraph.textContent = fact;
-                        funFactContainer.appendChild(factParagraph);
+                    // Display each fun fact and its corresponding image
+                    data.fun_facts.forEach((fact, index) => {
+                        const factContainer = document.createElement('div');
+                        factContainer.classList.add('fact-container');
+                        factContainer.classList.add(index % 2 === 0 ? 'even' : 'odd'); // Alternate styles
+
+                        // Create text container
+                        const textContainer = document.createElement('div');
+                        textContainer.classList.add('text-container');
+                        textContainer.innerHTML = `<p>${fact.fun_fact}</p>`;
+
+                        // Create image container
+                        const imageContainer = document.createElement('div');
+                        imageContainer.classList.add('image-container');
+                        imageContainer.innerHTML = `<img src="data:image/jpeg;base64,${fact.image}" alt="${fact.fun_fact}">`;
+
+                        // Append text and image containers to fact container
+                        factContainer.appendChild(textContainer);
+                        factContainer.appendChild(imageContainer);
+
+                        // Append fact container to the main container
+                        funFactContainer.appendChild(factContainer);
                     });
                 } else {
                     console.error('Invalid or empty response:', data);
@@ -44,18 +62,12 @@
             }
         };
 
-        // Attach the function to the button click event
-        if (getFunFactButton) {
-            getFunFactButton.addEventListener('click', getFunFacts);
-        } else {
-            console.error('Missing element with ID: get-fun-fact-btn');
-        }
+        // Attach click event listener to the "Get Fun Facts" button
+        getFunFactsBtn.addEventListener('click', getFunFacts);
 
         // Initial fetch when the page loads
         getFunFacts();
-
-        // Set interval for automatic update (e.g., every 10 seconds)
-        setInterval(getFunFacts, 10000); // 10000 milliseconds = 10 seconds
+        setInterval( getFunFacts, 15000); // 10000 milliseconds = 10 seconds
     });
 </script>
 {% endblock %}

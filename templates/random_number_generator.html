@@ -2,10 +2,10 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Random Number Generator{% endblock %}
+{% block title %}Number Generator{% endblock %}
 
 {% block content %}
-<h2 id="fun-fact-title">Random Number Generator</h2>
+<h2 id="fun-fact-title">Number Generator</h2>
     <form action="{{ url_for('random_number_generator') }}" method="post">
         <label for="min">Minimum Value:</label>
         <input type="number" name="min" value="{{ min_value|default(1) }}" required>
@@ -13,7 +13,7 @@
         <label for="max">Maximum Value:</label>
         <input type="number" name="max" value="{{ max_value|default(100) }}" required>
         <br>
-        <button type="submit">Generate Random Number</button>
+        <button type="submit" class="ran-num">Generate Random Number</button>
     </form>
     
     {% if random_number is defined %}
@@ -22,7 +22,7 @@
         </div>
     {% endif %}
     
-    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    <a href="{{ url_for('home_page') }}" class="home-btn">Home</a>
     <script>
        document.addEventListener('DOMContentLoaded', function () {
     const generateRandomBtn = document.getElementById('generate-random-btn');

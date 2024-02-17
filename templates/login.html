@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="square">
+        <i style="--clr:#00ff0a;"></i>
+        <i style="--clr:#ff0057;"></i>
+        <i style="--clr:#fffd44;"></i>
+        
+        <div class="login">
+            <h2>Login Form</h2>
+            <form id="login-form">
+                <div class="inputBx">
+                    <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+                </div>
+                <div class="inputBx">
+                    <input type="password" id="password" name="password" placeholder="Password" required><br>
+                </div>
+                <div class="inputBx">
+                    <button type="submit" class="btn-grad">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get input values
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            // Perform basic validation
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+            
+            // Redirect to home.html
+            window.location.href = '/home';
+        });
+    </script>
+</body>
+</html>
