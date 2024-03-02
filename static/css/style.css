@@ -11,8 +11,8 @@ h1 {
 }
 
 
-form, .result {
-    background-color: #ff847c; /* Coral pink */
+form {
+    background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     max-width: 400px;
@@ -20,39 +20,55 @@ form, .result {
     padding: 20px;
 }
 
-input, .result {
+input {
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
     background-color: #f9f5e8;
-    border: 1px solid #ff847c; 
-    color: #494848; /* Charcoal gray */
+    border: 2px solid;
+    
 }
 
-button {
-    background-color: #190E4F;
-    color: #f9f5e8; /* Light cream */
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.2em;
-}
 
-button:hover {
-    background-color: #ff5e62; /* Salmon pink */
-}
+.ran-num{
+        background-image: linear-gradient(to right, #3A1C71 0%, #D76D77  51%, #3A1C71  100%);
+        margin:auto; 
+        padding: 25px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        width: auto;
+        font-size: 20px;
+    }
+    
+
+.ran-num:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: solid;
+  }
+ 
 
 .result {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
     margin-top: 10px;
     font-size: 1.5em;
+    background-color: wheat;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient( 135deg, #FF6FD8 10%, #3813C2 100%);
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(111,111,219,1) 0%, rgba(182,109,246,1) 72.4% );
     margin: 0;
     padding: 0;
     display: flex;
@@ -61,15 +77,15 @@ body {
 }
 
 header, main, footer {
-    padding: 10px;
+    padding: px;
     box-sizing: border-box;
     flex: 1;
 }
 
 header, footer {
-    background: rgb(131,58,180);
-    background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(0,0,0,1) 100%);
+   background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(132,81,161,1) 0%, rgba(132,81,161,0.83) 90% );
 }
+
 .bg{
 background-size: cover;
 background-position: center;
@@ -100,18 +116,20 @@ margin: 15px;
 }
 
 a {
-    background-image: linear-gradient(to right, #C02425 0%, #F0CB35  51%, #C02425  100%);
-    margin: 10px;
+    background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC  51%, #02AAB0  100%);
+    margin: 10px auto;
     padding: 15px 45px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
     color: white;            
-    box-shadow: 0 0 20px #eee;
+    box-shadow: 0 0 10px #eee;
     border-radius: 10px;
     display: block;
-    text-decoration: none;
+    text-decoration:solid;
+    width: 100px;
+    font-size: x-large;
 }
 
 
@@ -125,28 +143,6 @@ a:hover {
     color: whitesmoke;
 }
 
-
-.ran-num{
-
-        background-image: linear-gradient(to right, #3A1C71 0%, #D76D77  51%, #3A1C71  100%);
-        margin: 10px;
-        padding: 15px 45px;
-        text-align: center;
-        text-transform: uppercase;
-        transition: 0.5s;
-        background-size: 200% auto;
-        color: white;            
-        box-shadow: 0 0 20px #eee;
-        border-radius: 10px;
-        display: block;
-      }
-
-.ran-num:hover {
-        background-position: right center; /* change the direction of the change here */
-        color: #fff;
-        text-decoration: none;
-      }
-     
 
 
 label {
@@ -171,15 +167,14 @@ label {
     width: auto;
     margin: 10px auto; /* Align button to center */
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 20px;
     color: #fff;
     cursor: pointer;
-
         background-image: linear-gradient(to right, #0575E6 0%, #021B79  51%, #0575E6  100%);
         text-transform: uppercase;
         transition: 0.5s;
         background-size: 200% auto;          
-        box-shadow: 0 0 20px #eee;
+        box-shadow: 0 0 10px #eee;
         border-radius: 10px;
 
       }
@@ -236,25 +231,6 @@ label {
     width: 375px;
 }
 
-
-/* Add styles for the thin line between containers (e.g., .line) */
-
-/* Styles for the home-btn */
-.home-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #27ae60; /* Nephritis green */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    width: 150px;
-}
-
-/* Add this CSS to your styles */
 #meme-container {
     text-align: center;
     margin-top: 20px;
@@ -288,33 +264,28 @@ label {
     display: block;
     margin: 20px;
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    width: fit-content;
     cursor: pointer;
-        background-image: linear-gradient(to right, #a80077 0%, #66ff00  51%, #a80077  100%);
+    background-image: linear-gradient(to right, #AA076B 0%, #61045F  51%, #AA076B  100%);
         text-transform: uppercase;
         transition: 0.5s;
         background-size: 200% auto;
         color: white;            
         box-shadow: 0 0 20px #eee;
         border-radius: 5px;
+        width:auto;
       }
 
-      #get-meme-btn:hover {
+      #get-meme-btn:hover,    
+      #prev-meme-btn:hover{
         background-position: right center; /* change the direction of the change here */
         color: #fff;
         text-decoration: none;
       }
       
-      
-      #prev-meme-btn:hover {
-        background-position: right center; /* change the direction of the change here */
-        color: #fff;
-        text-decoration: none;
-      }
      
       .container {
         max-width: 400px;
@@ -323,4 +294,5 @@ label {
         border: 1px solid #ccc;
         border-radius: 5px;
     }
+    
     

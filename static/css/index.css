@@ -38,7 +38,7 @@ h1{
 .feature-container1 {
     width: 95%;
     height: auto;
-    background-color: orange;
+    background-color: lightseagreen;
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
@@ -48,7 +48,7 @@ h1{
 .feature-container2{
     width: 95%;
     height: auto;
-    background-color: lightseagreen;
+    background-color: orange;
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
@@ -80,7 +80,7 @@ h1{
 img{
 
     height: 225px;
-    width: 335px;
+    width: 305px;
 
 }
 
