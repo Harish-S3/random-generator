@@ -1,0 +1,140 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.head{
+    font-weight: 900;
+    font-size: xx-large;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(146, 4, 146, 0.829);
+    color: white;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px;
+}
+
+h1{
+    color:black;
+}
+.feature-container1 {
+    width: 95%;
+    height: auto;
+    background-color: orange;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.feature-container2{
+    width: 95%;
+    height: auto;
+    background-color: lightseagreen;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.feature-container3{
+    width: 95%;
+    height: auto;
+    background-color:#007BFF;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.text{
+    text-align: justify;
+    font-size: xx-large;
+    color:beige;
+    font-family:cursive;
+    width: 50%;
+}
+
+.pic{
+ padding-left: 250px;
+}
+
+img{
+
+    height: 225px;
+    width: 335px;
+
+}
+
+footer {
+    background-color:rgba(146, 4, 146, 0.829);
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    margin: 0 20px;
+}
+
+form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+

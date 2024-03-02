@@ -23,14 +23,8 @@
     {% endif %}
     
     <a href="{{ url_for('home_page') }}" class="home-btn">Home</a>
-    <script>
-       document.addEventListener('DOMContentLoaded', function () {
-    const generateRandomBtn = document.getElementById('generate-random-btn');
-    generateRandomBtn.addEventListener('click', function () {
-        // Your click event handling code
-    });
-});
-    </script>
+
+    <script src="{{ url_for('static', filename='js/num.js') }}"></script>
 {% endblock %}
 
 

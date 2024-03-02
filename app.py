@@ -17,7 +17,11 @@ collection = db['funfact']
 
 @app.route('/')
 def home():
-    return render_template('login.html')
+    return render_template('index.html')
+
+@app.route('/form')
+def form():
+    return render_template('form.html')
 
 @app.route('/home')
 def home_page():

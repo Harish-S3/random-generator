@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+   
+</head>
+<body bgcolor="pink">
+    <header>
+        <p class="head">Random Generator</p>
+        <nav>
+            <a href="{{ url_for('form') }}" class="btn">Sign Up</a>
+            <a href="{{ url_for('form') }}" class="btn">Login</a>
+      
+        </nav>
+    </header>
+
+    <main>
+        <div class="feature-container1">
+            <h1>Number Generator</h1>
+            <table>
+                <tr>
+                    <td class="text">Gets an input for maximun and minimum value from the user and
+                    uses python rand function to display a random number with the given range</td>
+           <td class="pic"><img src="/static/img/num.jpg"></td>
+                 </tr>
+            </table>
+        </div>
+        <div class="feature-container2">
+            <h1>FunFact Generator</h1>
+            <table>
+                <tr>
+                    <td ><img src="/static/img/ff.png"></td>
+                    <td  class="text"> Displays Random funfacts and their relevant images from 
+                    the MongoDB collection which contains a total of 50 funfacts with images </td>
+                </tr>
+            </table>
+        </div>
+        <div class="feature-container3">
+            <h1>Meme Generator</h1>
+            <table>
+                <tr>
+                    <td  class="text">Displays a random meme image related to computer science and programming 
+                     from AWS S3 database which contains 50 memes </td>
+                    <td class="pic"><img src="/static/img/num.jpg"></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <h3 align="right">Mini Project By Harish.S</h3>
+    </footer>
+</body>
+</html>
