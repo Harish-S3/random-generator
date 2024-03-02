@@ -1,0 +1,70 @@
+
+
+body{
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+/* Import a cool font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+.welcome-heading {
+    font-family: 'Rubik', sans-serif; /* Use the imported font */
+    font-size: 48px; /* Adjust the font size as needed */
+    text-align: center; /* Center the text */
+    color: #333; /* Set the text color */
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.service-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+background-image: radial-gradient( circle farthest-corner at 92.3% 71.5%,  rgba(83,138,214,1) 0%, rgba(134,231,214,1) 90% );
+    border-right: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.service-column:last-child {
+    border-right: none;
+}
+
+.service-column:hover {
+    transform: scale(1.3);
+}
+
+a {
+    background-image: linear-gradient(to right, #C02425 0%, #F0CB35  51%, #C02425  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+
+a:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
